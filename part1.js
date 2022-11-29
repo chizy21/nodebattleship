@@ -1,4 +1,4 @@
-var rs = require("readline-sync");
+const rs = require("readline-sync");
 
 class Game {
   constructor() {
@@ -42,9 +42,9 @@ class Game {
   convertNumber = (n, i) => (this.strike[1] = n - i);
 
   sumChars(s) {
-    var i,
-      n = s.length,
-      acc = 0;
+    let i,
+        n = s.length,
+        acc = 0;
     for (i = 0; i < n; i++) {
       acc += parseInt(s[i], 36) - 10;
     }
@@ -88,7 +88,7 @@ class Game {
   //game play
 
   attackPlay(y, x, board) {
-    if (board[y][x] == "S") {
+    if (board[y][x] === "S") {
       board[y][x] = "!";
 
       this.shipCount--;
@@ -102,7 +102,7 @@ class Game {
           ),
           this.getStrike()
         );
-    } else if (board[y][x] == "-") {
+    } else if (board[y][x] === "-") {
       board[y][x] = "x";
       return false, console.log("You have missed!"), this.getStrike();
     } else {

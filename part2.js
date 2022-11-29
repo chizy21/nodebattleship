@@ -1,4 +1,4 @@
-var rs = require("readline-sync");
+const rs = require("readline-sync");
 
 class Game {
   constructor() {
@@ -225,12 +225,12 @@ class Game {
       console.log("That is not a proper location. Try again");
       this.getStrike();
     }
-    if (board[y][x] == "S") {
+    if (board[y][x] === "S") {
       (board[y][x] = "!"), this.trackShipSunkCount(y, x, board);
       if (this.shipCount === 0) {
         this.endGame();
       }
-    } else if (board[y][x] == "-") {
+    } else if (board[y][x] === "-") {
       board[y][x] = "x";
       return console.log("You have missed!"), this.getStrike();
     } else {

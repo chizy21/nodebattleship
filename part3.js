@@ -1,4 +1,4 @@
-var rs = require("readline-sync");
+const rs = require("readline-sync");
 
 class Game {
   constructor() {
@@ -51,7 +51,7 @@ class Game {
       let alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
       let rowStr = alpha[i] + " ";
       for (let cell of board[i]) {
-        if (isEnemy && cell == "S") {
+        if (isEnemy && cell === "S") {
           rowStr += "- ";
         } else {
           rowStr += cell + " ";
@@ -260,12 +260,12 @@ class Game {
       console.log("That is not a proper location. Try again");
       this.getStrike();
     }
-    if (board[y][x] == "S") {
+    if (board[y][x] === "S") {
       (board[y][x] = "X"), this.trackShipSunkCount(y, x, board);
       if (this.shipCount === 0) {
         this.endGame();
       }
-    } else if (board[y][x] == "-") {
+    } else if (board[y][x] === "-") {
       board[y][x] = "O";
       return (
         console.log("You have missed!"),
